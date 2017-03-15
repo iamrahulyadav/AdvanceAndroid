@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2012 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<resources>
+
+    <string name="clear_cache_menu">Clear Caches</string>
+    <string name="clear_cache_complete_toast">Caches have been cleared</string>
+    <string name="imageview_description">Image Thumbnail</string>
+    <string name="no_network_connection_toast">No network connection found</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_email">Email Id</string>
+    <string name="loading">Loading...</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="hint_name">Name</string>
+    <string name="title_activity_data_binding">DataBindingActivity</string>
+    <string name="ok">OK</string>
+    <string name="no_camera_permission">No Camera Permission</string>
+    <string name="permission_camera_rationale">Camera Permission</string>
+    <string name="barcode_header">BarCode</string>
+    <string name="read_barcode">Read</string>
+    <string name="auto_focus">Auto Focus</string>
+    <string name="use_flash">Flash</string>
+    <string name="low_storage_error">Low Storage</string>
+    <string name="barcode_success">Barcode Success</string>
+    <string name="barcode_failure">Barcode Failure</string>
+    <string name="barcode_error">Barcode Error</string>
+    <string name="ocr_header">OCR HEADER</string>
+    <string name="read_text">Read Text</string>
+    <string name="barcode_reader">Bar Code Reader</string>
+    <string name="title_activity_photo_viewer">title_activity_photo_viewer</string>
+    <string name="ocr_success">Ocr Success</string>
+    <string name="ocr_failure">Ocr Failed</string>
+    <string name="ocr_error">Ocr Error</string>
+    <string name="hello">Hello</string>
+    <string name="greet">Hello</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_github">Github</string>
+
+
+    <string name="error_loading_people">There seems to have been some error.</string>
+    <string name="default_loading_people">Press the button to load people!</string>
+    <string name="hello_world">Hello WOrld</string>
+    <string name="click_me">CLick Me</string>
+
+    <plurals name="numberOfComments">123</plurals>
+
+
+    <string name="subscription_placeholder"> Account Type : %1$s \n\nSubscription Start Date : %2$s \n\nSubscription End Date : %3$s \n\nDo you Want to Upgrade ?</string>
+
+    <string-array name="homeItemArray">
+
+        <item>Bitmap Memory MngMt</item>
+        <item>Dagger2</item>
+        <item>MVVM</item>
+        <item>MVP</item>
+        <item>Daata Binding</item>
+        <item>ABCD</item>
+    </string-array>
+
+</resources>

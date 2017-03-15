@@ -45,7 +45,7 @@ public class MainFragmentActivity extends AppCompatActivity implements View.OnCl
         Fragment fragment1 = getFragmentManager().findFragmentById(R.id.llContainerFragmentA);
 
         // here u will get the fragment inside fragmentB
-        Log.i(TAG, "onBackPressed: "+(fragment1 instanceof FragmentB));
+        Log.i(TAG, "onBackPressed : "+(fragment1 instanceof FragmentB));
         if(fragment1 instanceof FragmentB){
             // here u can do a call back and update the
             fragmentA.onBackClickListener();

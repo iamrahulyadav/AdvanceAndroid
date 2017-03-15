@@ -5,28 +5,41 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import spinc.advandroideg.HomeRecyclerAdapter;
 import spinc.advandroideg.R;
+import spinc.advandroideg.controller.RecyclerClickListener;
 import spinc.advandroideg.fragment_mngmt.controller.OnBackClick;
 import spinc.advandroideg.mvp_pattern.base.BaseFragment;
+
 
 
 /**
  * Created by webwerks on 16/2/17.
  */
 
-public class FragmentA extends BaseFragment implements FragmentManager.OnBackStackChangedListener, View.OnClickListener,OnBackClick {
+public class FragmentA extends BaseFragment implements FragmentManager.OnBackStackChangedListener, RecyclerClickListener,OnBackClick {
 
     public static final String TAG = "FragmentA";
     View rootView;
 
-    AppCompatButton buttonAddB;
+    RecyclerView recyclerViewFragmentA;
     LinearLayout llContainerFragmentA;
+
+    HomeRecyclerAdapter homeRecyclerAdapter;
+    List<String> listData = new ArrayList<>();
+
 
     public static FragmentA newInstance() {
 
@@ -62,16 +75,32 @@ public class FragmentA extends BaseFragment implements FragmentManager.OnBackSta
 
     @Override
     protected void initView(View rootview) {
-        buttonAddB = (AppCompatButton) rootview.findViewById(R.id.buttonAddB);
+        recyclerViewFragmentA = (RecyclerView) rootview.findViewById(R.id.recyclerViewFragmentA);
         llContainerFragmentA = (LinearLayout) rootview.findViewById(R.id.llContainerFragmentA);
 
+        listData.add("Cupcake");
+        listData.add("Donunt");
+        listData.add("Eclair");
+        listData.add("Froyo");
+        listData.add("GIngerBread");
+        listData.add("Honey COmb");
+        listData.add("Ice cream Sandwich");
+        listData.add("Jelly Bean");
+        listData.add("Kit Kat");
+        listData.add("Lolipop");
+        listData.add("Marse Mallo");
+        listData.add("Naught");
+
+        recyclerViewFragmentA.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        homeRecyclerAdapter = new HomeRecyclerAdapter(getActivity(), listData, this);
+        recyclerViewFragmentA.setAdapter(homeRecyclerAdapter);
 
         setClicklistener();
     }
 
     @Override
     protected void setClicklistener() {
-        buttonAddB.setOnClickListener(this);
+
     }
 
     @Override
@@ -80,17 +109,15 @@ public class FragmentA extends BaseFragment implements FragmentManager.OnBackSta
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.buttonAddB:
-                getFragmentManager().beginTransaction().replace(R.id.llContainerFragmentA,FragmentB.newInstance(),FragmentB.TAG).commit();
-                break;
-        }
-    }
-
-
-    @Override
     public void onBackClickListener() {
         // here update the fragment which you want to update
+        Log.i(TAG, "onBackClickListener: here ");
+    }
+
+    @Override
+    public void onItemCLick(int position) {
+        recyclerViewFragmentA.setVisibility(View.GONE);
+        llContainerFragmentA.setVisibility(View.VISIBLE);
+        getFragmentManager().beginTransaction().replace(R.id.llContainerFragmentA,FragmentB.newInstance(),FragmentB.TAG).commit();
     }
 }

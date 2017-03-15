@@ -8,77 +8,80 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        />
+        android:orientation="vertical" />
 
-    <LinearLayout
-        android:id="@+id/llFragmentFunctions"
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutMain"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_above="@+id/llBottom"
-        >
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/buttonClearAllLoadA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Clear All , Load A"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/buttonAddFragmentB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bring B top"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/buttonclearLastfragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Clear Last Fragment"
-            android:layout_weight="1"
-            />
+        android:layout_height="match_parent">
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llFragmentFunctions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/llBottom"
+            android:orientation="horizontal">
 
-    <LinearLayout
-        android:id="@+id/llBottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        >
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/buttonFragmentA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add A"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/buttonFragmentB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add B"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/buttonFragmentC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add C"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/buttonFragmentD"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add D"
-            android:layout_weight="1"
-            />
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/buttonClearAllLoadA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Clear All , Load A" />
 
-    </LinearLayout>
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/buttonAddFragmentB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Bring B top" />
 
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/buttonclearLastfragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Clear Last Fragment" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llBottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/buttonFragmentA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Add A" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/buttonFragmentB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Add B" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/buttonFragmentC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Add C" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/buttonFragmentD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Add D" />
+
+        </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

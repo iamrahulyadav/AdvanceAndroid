@@ -8,6 +8,7 @@ import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import spinc.advandroideg.R;
 
@@ -15,7 +16,7 @@ import spinc.advandroideg.R;
  * Created by webwerks on 16/2/17.
  */
 
-public class MainFragmentActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainFragmentActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     // http://stackoverflow.com/questions/5802141/is-this-the-right-way-to-clean-up-fragment-back-stack-when-leaving-a-deeply-nest
@@ -32,29 +33,29 @@ public class MainFragmentActivity extends AppCompatActivity implements View.OnCl
     AppCompatButton buttonAddFragmentB;
     AppCompatButton buttonclearLastfragment;
 
+    RelativeLayout relativeLayoutMain;
+
     FragmentA fragmentA;
 
     FragmentUtilsMain fragmentUtilsMain;
 
     @Override
     public void onBackPressed() {
-        Log.i(TAG, "onBackPressed: "+fragmentUtilsMain.getBackStackEntryCount()+" "+getSupportFragmentManager().getFragments());
-
 
         // here i find the fragment which added to Container of FragmentA
-        Fragment fragment1 = getFragmentManager().findFragmentById(R.id.llContainerFragmentA);
-
-        // here u will get the fragment inside fragmentB
-        Log.i(TAG, "onBackPressed : "+(fragment1 instanceof FragmentB));
-        if(fragment1 instanceof FragmentB){
-            // here u can do a call back and update the
+        Fragment fragmentD = getFragmentManager().findFragmentById(R.id.frameContainerB);
+        Fragment fragmentNew = getFragmentManager().findFragmentById(R.id.container);
+        if (fragmentD instanceof FragmentD) {
+            getFragmentManager().beginTransaction().replace(R.id.frameContainerB, FragmentC.newInstance()).commit();
+        } else if (fragmentD instanceof FragmentC) {
+            if (fragmentUtilsMain.getBackStackEntryCount() > 0) {
+//                fragmentUtilsMain.popBackStack(true);
+                getFragmentManager().beginTransaction().replace(R.id.container, FragmentA.newInstance()).commit();
+            } else
+                super.onBackPressed();
+        } else if (fragmentNew instanceof FragmentA) {
             fragmentA.onBackClickListener();
         }
-
-       /* if(fragmentUtilsMain.getBackStackEntryCount()>0)
-            fragmentUtilsMain.popBackStack(true);
-        else
-            super.onBackPressed();*/
     }
 
     @Override
@@ -78,6 +79,7 @@ public class MainFragmentActivity extends AppCompatActivity implements View.OnCl
         buttonClearAllLoadA = (AppCompatButton) findViewById(R.id.buttonClearAllLoadA);
         buttonAddFragmentB = (AppCompatButton) findViewById(R.id.buttonAddFragmentB);
         buttonclearLastfragment = (AppCompatButton) findViewById(R.id.buttonclearLastfragment);
+        relativeLayoutMain = (RelativeLayout) findViewById(R.id.relativeLayoutMain);
 
         setClickListener();
     }
@@ -95,31 +97,33 @@ public class MainFragmentActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.buttonFragmentA :
-                fragmentUtilsMain.startFragment(fragmentA,R.id.container,true);
+
+        relativeLayoutMain.setVisibility(View.GONE);
+
+        switch (view.getId()) {
+            case R.id.buttonFragmentA:
+                fragmentUtilsMain.startFragment(fragmentA, R.id.container, true);
                 break;
-            case R.id.buttonFragmentB :
-                fragmentUtilsMain.startFragment(FragmentB.newInstance(),R.id.container,true);
+            case R.id.buttonFragmentB:
+                fragmentUtilsMain.startFragment(FragmentB.newInstance(), R.id.container, true);
                 break;
-            case R.id.buttonFragmentC :
-                fragmentUtilsMain.startFragment(FragmentC.newInstance(),R.id.container,true);
+            case R.id.buttonFragmentC:
+                fragmentUtilsMain.startFragment(FragmentC.newInstance(), R.id.container, true);
                 break;
-            case R.id.buttonFragmentD :
-                fragmentUtilsMain.startFragment(FragmentD.newInstance(),R.id.container,true);
+            case R.id.buttonFragmentD:
+                fragmentUtilsMain.startFragment(FragmentD.newInstance(), R.id.container, true);
                 break;
 
 
-
-            case R.id.buttonClearAllLoadA :
-                Log.i(TAG, "onClick: "+fragmentUtilsMain.getBackStackEntryCount());
-                fragmentUtilsMain.clearBackStackLoadSingleFragment(FragmentA.newInstance(),R.id.container,false);
-                Log.i(TAG, "onClick: "+fragmentUtilsMain.getBackStackEntryCount());
+            case R.id.buttonClearAllLoadA:
+                Log.i(TAG, "onClick: " + fragmentUtilsMain.getBackStackEntryCount());
+                fragmentUtilsMain.clearBackStackLoadSingleFragment(FragmentA.newInstance(), R.id.container, false);
+                Log.i(TAG, "onClick: " + fragmentUtilsMain.getBackStackEntryCount());
                 break;
-            case R.id.buttonAddFragmentB :
+            case R.id.buttonAddFragmentB:
 
                 break;
-            case R.id.buttonclearLastfragment :
+            case R.id.buttonclearLastfragment:
 
                 break;
 

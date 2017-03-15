@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -116,6 +117,7 @@ public class FragmentA extends BaseFragment implements FragmentManager.OnBackSta
 
     @Override
     public void onItemCLick(int position) {
+        Toast.makeText(getActivity(), "On Back press in Fragment A", Toast.LENGTH_SHORT).show();
         recyclerViewFragmentA.setVisibility(View.GONE);
         llContainerFragmentA.setVisibility(View.VISIBLE);
         getFragmentManager().beginTransaction().replace(R.id.llContainerFragmentA,FragmentB.newInstance(),FragmentB.TAG).commit();

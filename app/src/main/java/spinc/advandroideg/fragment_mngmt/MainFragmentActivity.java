@@ -45,6 +45,7 @@ public class MainFragmentActivity extends AppCompatActivity implements View.OnCl
         // here i find the fragment which added to Container of FragmentA
         Fragment fragmentD = getFragmentManager().findFragmentById(R.id.frameContainerB);
         Fragment fragmentNew = getFragmentManager().findFragmentById(R.id.container);
+
         if (fragmentD instanceof FragmentD) {
             getFragmentManager().beginTransaction().replace(R.id.frameContainerB, FragmentC.newInstance()).commit();
         } else if (fragmentD instanceof FragmentC) {

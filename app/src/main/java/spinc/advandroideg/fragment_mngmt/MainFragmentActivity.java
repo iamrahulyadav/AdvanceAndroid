@@ -1,5 +1,6 @@
 package spinc.advandroideg.fragment_mngmt;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -31,21 +32,37 @@ public class MainFragmentActivity extends AppCompatActivity implements View.OnCl
     AppCompatButton buttonAddFragmentB;
     AppCompatButton buttonclearLastfragment;
 
+    FragmentA fragmentA;
+
     FragmentUtilsMain fragmentUtilsMain;
 
     @Override
     public void onBackPressed() {
-        Log.i(TAG, "onBackPressed: "+fragmentUtilsMain.getBackStackEntryCount());
-        if(fragmentUtilsMain.getBackStackEntryCount()>0)
+        Log.i(TAG, "onBackPressed: "+fragmentUtilsMain.getBackStackEntryCount()+" "+getSupportFragmentManager().getFragments());
+
+
+        // here i find the fragment which added to Container of FragmentA
+        Fragment fragment1 = getFragmentManager().findFragmentById(R.id.llContainerFragmentA);
+
+        // here u will get the fragment inside fragmentB
+        Log.i(TAG, "onBackPressed: "+(fragment1 instanceof FragmentB));
+        if(fragment1 instanceof FragmentB){
+            // here u can do a call back and update the
+            fragmentA.onBackClickListener();
+        }
+
+       /* if(fragmentUtilsMain.getBackStackEntryCount()>0)
             fragmentUtilsMain.popBackStack(true);
         else
-            super.onBackPressed();
+            super.onBackPressed();*/
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_main);
+
+        fragmentA = FragmentA.newInstance();
 
         fragmentUtilsMain = new FragmentUtilsMain(MainFragmentActivity.this);
 
@@ -80,7 +97,7 @@ public class MainFragmentActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.buttonFragmentA :
-                fragmentUtilsMain.startFragment(FragmentA.newInstance(),R.id.container,true);
+                fragmentUtilsMain.startFragment(fragmentA,R.id.container,true);
                 break;
             case R.id.buttonFragmentB :
                 fragmentUtilsMain.startFragment(FragmentB.newInstance(),R.id.container,true);

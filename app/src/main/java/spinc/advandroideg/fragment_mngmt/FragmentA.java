@@ -1,19 +1,18 @@
 package spinc.advandroideg.fragment_mngmt;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.AppCompatTextView;
+import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 
 import spinc.advandroideg.R;
+import spinc.advandroideg.fragment_mngmt.controller.OnBackClick;
 import spinc.advandroideg.mvp_pattern.base.BaseFragment;
 
 
@@ -21,14 +20,13 @@ import spinc.advandroideg.mvp_pattern.base.BaseFragment;
  * Created by webwerks on 16/2/17.
  */
 
-public class FragmentA extends BaseFragment implements FragmentManager.OnBackStackChangedListener{
+public class FragmentA extends BaseFragment implements FragmentManager.OnBackStackChangedListener, View.OnClickListener,OnBackClick {
 
     public static final String TAG = "FragmentA";
     View rootView;
 
-    RelativeLayout relativeRootFragment;
-    AppCompatTextView textViewFragmentName;
-    AppCompatImageView imageViewSmiley;
+    AppCompatButton buttonAddB;
+    LinearLayout llContainerFragmentA;
 
     public static FragmentA newInstance() {
 
@@ -52,7 +50,7 @@ public class FragmentA extends BaseFragment implements FragmentManager.OnBackSta
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_layout,container,false);
+        rootView = inflater.inflate(R.layout.fragment_a, container, false);
         initView(rootView);
         return rootView;
     }
@@ -64,25 +62,35 @@ public class FragmentA extends BaseFragment implements FragmentManager.OnBackSta
 
     @Override
     protected void initView(View rootview) {
-        relativeRootFragment = (RelativeLayout) rootview.findViewById(R.id.relativeRootFragment);
-        textViewFragmentName = (AppCompatTextView) rootview.findViewById(R.id.textViewFragmentName);
-        imageViewSmiley = (AppCompatImageView) rootview.findViewById(R.id.imageViewSmiley);
+        buttonAddB = (AppCompatButton) rootview.findViewById(R.id.buttonAddB);
+        llContainerFragmentA = (LinearLayout) rootview.findViewById(R.id.llContainerFragmentA);
 
-        int color = Color.parseColor("#CD5C5C"); //The color u want
-        imageViewSmiley.setColorFilter(color);
-
-        textViewFragmentName.setText(TAG);
 
         setClicklistener();
     }
 
     @Override
     protected void setClicklistener() {
-
+        buttonAddB.setOnClickListener(this);
     }
 
     @Override
     public void onBackStackChanged() {
         Log.i(TAG, "onBackStackChanged: A ");
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.buttonAddB:
+                getFragmentManager().beginTransaction().replace(R.id.llContainerFragmentA,FragmentB.newInstance(),FragmentB.TAG).commit();
+                break;
+        }
+    }
+
+
+    @Override
+    public void onBackClickListener() {
+        // here update the fragment which you want to update
     }
 }

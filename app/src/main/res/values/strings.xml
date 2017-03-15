@@ -68,6 +68,7 @@
     <string-array name="homeItemArray">
 
         <item>Bitmap Memory MngMt</item>
+        <item>Fragmennt MngMt</item>
         <item>Dagger2</item>
         <item>MVVM</item>
         <item>MVP</item>

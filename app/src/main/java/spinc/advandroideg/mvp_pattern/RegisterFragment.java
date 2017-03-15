@@ -132,7 +132,7 @@ public class RegisterFragment extends BaseFragment implements RegisterInterface,
     @Override
     public void setLoginData(String loginData) {
         showSnackBar(loginData);
-        ((HomeActivity)getActivity()).loadLoginScreen();
+        ((MvpMainActivity)getActivity()).loadLoginScreen();
     }
 
     @Override
@@ -169,7 +169,7 @@ public class RegisterFragment extends BaseFragment implements RegisterInterface,
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.buttonLoginRegScreen :
-                ((HomeActivity)getActivity()).loadLoginScreen();
+                ((MvpMainActivity)getActivity()).loadLoginScreen();
                 break;
             case R.id.buttonRegisterRegScreen :
                 registerPresenter.doRegister(editTextNameRegister.getText().toString().trim(),

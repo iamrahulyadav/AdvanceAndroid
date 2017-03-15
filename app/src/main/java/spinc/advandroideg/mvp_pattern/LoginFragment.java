@@ -1,7 +1,6 @@
 package spinc.advandroideg.mvp_pattern;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -133,7 +132,7 @@ public class LoginFragment extends BaseFragment implements LoginInterface, View.
     @Override
     public void setRegisterData(String registerData) {
         showSnackBar(registerData);
-        ((HomeActivity) getActivity()).loadRegisterScreen();
+        ((MvpMainActivity) getActivity()).loadRegisterScreen();
     }
 
     @Override
@@ -163,7 +162,7 @@ public class LoginFragment extends BaseFragment implements LoginInterface, View.
                 loginPresenter.doLogin(edittextEmail.getText().toString().trim(), edittextPassword.getText().toString().trim());
                 break;
             case R.id.buttonRegister:
-                ((HomeActivity) getActivity()).loadRegisterScreen();
+                ((MvpMainActivity) getActivity()).loadRegisterScreen();
                 break;
             case R.id.tvLoginHeader:
                 Utils.showOrHideKeyBoard(getActivity(), linearLayoutRootLogin);

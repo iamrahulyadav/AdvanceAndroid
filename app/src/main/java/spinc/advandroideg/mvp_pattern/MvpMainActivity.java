@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import spinc.advandroideg.R;
 
-public class HomeActivity extends AppCompatActivity {
+public class MvpMainActivity extends AppCompatActivity {
 
 
     private static final String TAG = "HomeActivity";

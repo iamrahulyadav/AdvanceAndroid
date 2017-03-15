@@ -21,6 +21,8 @@
 
         <activity android:name=".bitmapMamoryMngmt.ui.ImageGridActivity"/>
         <activity android:name=".bitmapMamoryMngmt.ui.ImageDetailActivity"/>
+        <activity android:name=".mvp_pattern.MvpMainActivity"/>
+        <activity android:name=".fragment_mngmt.MainFragmentActivity"/>
 
 
     </application>

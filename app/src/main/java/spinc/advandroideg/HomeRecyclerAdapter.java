@@ -49,7 +49,7 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listData.size();
     }
 
     class HomeViewHolder extends RecyclerView.ViewHolder {

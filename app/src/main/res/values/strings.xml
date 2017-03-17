@@ -64,6 +64,7 @@
 
 
     <string name="subscription_placeholder"> Account Type : %1$s \n\nSubscription Start Date : %2$s \n\nSubscription End Date : %3$s \n\nDo you Want to Upgrade ?</string>
+    <string name="please_wait">Please Wait...</string>
 
     <string-array name="homeItemArray">
 

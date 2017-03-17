@@ -1,6 +1,7 @@
 package spinc.advandroideg.dagger2.service.impl;
 
-import com.test.xyz.daggersample.service.api.HelloService;
+
+import spinc.advandroideg.dagger2.service.api.HelloService;
 
 public class HelloServiceManager implements HelloService {
 
